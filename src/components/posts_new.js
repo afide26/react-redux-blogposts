@@ -5,23 +5,23 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 
 class PostsNew extends Component {
-  renderError(field) {
-    if (field.meta.error) {
-      return (
-        <div className="alert alert-danger" role="alert">
-          {field.meta.error}
-        </div>
-      );
-    }
-  }
   renderField(field) {
+    const { meta: { touched, error, invalid } } = field;
+    const className = `form-group ${touched && error ? 'has-danger' : ' '}`;
     return (
-      <div className="form-group">
+      <div className={className}>
         <label htmlFor="title">
           {field.label}:
         </label>
         <input type="text" {...field.input} className="form-control" />
-        {this.renderError}
+        <div
+          className={
+            'action' + (invalid && touched ? ' alert alert-danger' : ' ')
+          }
+          role="alert"
+        >
+          {touched ? error : ' '}
+        </div>
       </div>
     );
   }
