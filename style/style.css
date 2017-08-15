@@ -1,3 +1,6 @@
+body {
+  padding-top: 20px;
+}
 .list-group-item:first-child {
   background-color: #066580;
   color: #ffffff;
@@ -6,4 +9,12 @@
 .alert {
   margin: 10px auto;
   padding: 5px 5px !important;
+}
+.fa-trash {
+  color: red;
+}
+.btn {
+  border-radius: 20px !important;
+  padding: 5px 9px !important;
+  margin-right: 5px;
 }

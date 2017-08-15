@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions';
+import { fetchPosts, addPost } from '../actions';
 
 class PostsNew extends Component {
   renderField(field) {
@@ -27,7 +28,9 @@ class PostsNew extends Component {
   }
 
   onSubmit(values) {
-    console.log(values);
+    this.props.addPost(values, () => {
+      this.props.history.push('/');
+    });
   }
 
   render() {
@@ -49,6 +52,9 @@ class PostsNew extends Component {
         <button type="submit" className="btn btn-success btn-sm">
           <i className="fa fa-plus" /> Submit
         </button>
+        <Link className="btn btn-primary btn-sm" to="/ ">
+          <i className="fa fa-chevron-left" /> Back
+        </Link>
       </form>
     );
   }
@@ -74,5 +80,5 @@ function validate(values) {
 }
 
 export default reduxForm({ form: 'PostsNewForm', validate: validate })(
-  PostsNew
+  connect(null, { addPost })(PostsNew)
 );
