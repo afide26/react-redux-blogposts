@@ -52,7 +52,7 @@ class PostsNew extends Component {
         <button type="submit" className="btn btn-success btn-sm">
           <i className="fa fa-plus" /> Submit
         </button>
-        <Link className="btn btn-primary btn-sm" to="/ ">
+        <Link className="btn btn-primary btn-sm" to="/">
           <i className="fa fa-chevron-left" /> Back
         </Link>
       </form>
