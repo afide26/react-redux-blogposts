@@ -1,12 +1,16 @@
 body {
   padding-top: 20px;
 }
+button[type="submit"] {
+  border: none !important;
+  outline: none !important;
+}
 .list-group-item:first-child {
-  background-color: #066580;
+  background-color: #ffffff !important;
 }
 
 .list-group-item:first-child > a {
-  color: #ffffff !important;
+  color: #066580 !important;
 }
 .alert {
   margin: 10px auto;
@@ -14,6 +18,10 @@ body {
 }
 .fa-trash {
   color: red;
+}
+
+i.fa-trash.post-delete {
+  color: white !important;
 }
 .btn {
   border-radius: 20px !important;

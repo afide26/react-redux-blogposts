@@ -4,6 +4,7 @@ const API_KEY = '?key=alan1126';
 export const FETCH_POSTS = 'fetch_posts';
 export const ADD_POST = 'add_post';
 export const SHOW_POST = 'show_post';
+export const DELETE_POST = 'delete_post';
 
 export function fetchPosts() {
   const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
@@ -31,5 +32,16 @@ export function showPost(id) {
   return {
     type: SHOW_POST,
     payload: request
+  };
+}
+
+export function deletePost(id, callback) {
+  const request = axios
+    .delete(`${ROOT_URL}/posts/${id}${API_KEY}`)
+    .then(() => callback());
+
+  return {
+    type: DELETE_POST,
+    payload: id
   };
 }

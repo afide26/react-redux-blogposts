@@ -14,10 +14,7 @@ class PostsIndex extends Component {
       return (
         <li className="list-group-item" key={post.id}>
           <Link to={`/posts/${post.id}`}>
-            Post Title: {post.title}
-            <span className="pull-right">
-              <i className="fa fa-trash" />
-            </span>
+            <i className="fa fa-file" /> Post Title: {post.title}
           </Link>
         </li>
       );
